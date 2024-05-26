@@ -27,14 +27,13 @@ class MapDSA {
     });
   }
 
-  // isNodePresent(index) {
-  //   index < MapDSA.allnodes.length ? true : false;
-  // }
+  isNodePresent(index) {
+    return index < MapDSA.allnodes.length ? true : false;
+  }
+
   //return node from index
   returnNode(index) {
-    if (index < MapDSA.allnodes.length) {
-      return MapDSA.allnodes[index];
-    }
+    return this.isNodePresent(index) ? MapDSA.allnodes[index] : undefined;
   }
   MapNode = class {
     constructor(x_cordinate, y_cordinate, magnitude) {
@@ -59,13 +58,6 @@ mapdsa.addNode(30, 10, 20);
 mapdsa.addNode(30, 10, 20);
 
 mapdsa.showAllNodes();
-// console.log(mapdsa.returnNode(1));
+console.log(mapdsa.returnNode(3));
+
 // console.log(MapDSA.allnodes);
-
-// Creating an instance of MapDSA to access the inner class MapNode
-// const mapDSA = new MapDSA();
-// const MapNode = mapDSA.MapNode;
-
-// // Usage
-// const apple = new MapNode(0, 0, 19);
-// console.log(apple.toString());
