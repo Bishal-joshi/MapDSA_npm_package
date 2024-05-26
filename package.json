@@ -1,0 +1,17 @@
+{
+  "name": "map_dsa",
+  "version": "1.0.0",
+  "description": "a dsa algorithm for drawing map",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Bishal Joshi",
+  "license": "ISC"
+}
