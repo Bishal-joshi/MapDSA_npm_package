@@ -1,3 +1,4 @@
+const { RecursionFunction } = require("./src/utils");
 class MapDSA {
   headNode = null;
   static index = 0; //fgiving index to each nodes
@@ -6,14 +7,19 @@ class MapDSA {
     this.headNode = new this.MapNode(0, 0, 0);
   }
 
-  addNode(x, y, magnitude, whose) {
-    // if whose pathayena vane head ko next ma add else whose ko next ma
+  addNode(x, y, magnitude, nodeIndex) {
+    // if nodeIndex pathayena vane head ko next ma add else nodeIndex ko next ma
     const newNode = new this.MapNode(x, y, magnitude);
-    if (!whose) {
+    if (!nodeIndex) {
       this.headNode.nextNode.push(newNode);
       return;
     }
-    whose.nextNode.push(newNode);
+    if (this.isNodePresent(nodeIndex)) {
+      // get node value
+      const node = MapDSA.allnodes[nodeIndex];
+      node.nextNode.push(newNode);
+      return nodeIndex;
+    }
   }
 
   showAllNodes() {
@@ -21,10 +27,12 @@ class MapDSA {
       console.log(this.headNode.toString());
       return;
     }
-    console.log(this.headNode.toString()); //1st node
-    this.headNode.nextNode.forEach((element) => {
-      console.log(element.toString());
-    });
+    // console.log(this.headNode.toString()); //1st node
+
+    // this.headNode.nextNode.forEach((element) => {
+    //   console.log(element.toString());
+    // });
+    RecursionFunction(this.headNode);
   }
 
   isNodePresent(index) {
@@ -56,8 +64,9 @@ const mapdsa = new MapDSA();
 mapdsa.addNode(10, 10, 20);
 mapdsa.addNode(30, 10, 20);
 mapdsa.addNode(30, 10, 20);
+mapdsa.addNode(50, 50, 50, 1);
+mapdsa.addNode(50, 50, 50, 2);
 
 mapdsa.showAllNodes();
-console.log(mapdsa.returnNode(3));
-
+// console.log(mapdsa.returnNode(3));
 // console.log(MapDSA.allnodes);
