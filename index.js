@@ -22,6 +22,11 @@ class MapDSA {
     }
   }
 
+  // vako node lai push, map draw garda kaam lagchha
+  addExistingNode(node, toNode) {
+    toNode.nextNode.push(node);
+  }
+
   showAllNodes() {
     if (this.headNode.nextNode.length < 1) {
       console.log(this.headNode.toString());
@@ -62,10 +67,12 @@ class MapDSA {
 
 const mapdsa = new MapDSA();
 mapdsa.addNode(10, 10, 20);
-mapdsa.addNode(30, 10, 20);
+mapdsa.addNode(30, 40, 20);
 mapdsa.addNode(30, 10, 20);
 mapdsa.addNode(50, 50, 50, 1);
 mapdsa.addNode(50, 50, 50, 2);
+
+mapdsa.addExistingNode(MapDSA.allnodes[5], MapDSA.allnodes[1]);
 
 mapdsa.showAllNodes();
 // console.log(mapdsa.returnNode(3));
