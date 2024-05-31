@@ -32,12 +32,11 @@ class MapDSA {
       console.log(this.headNode.toString());
       return;
     }
-    // console.log(this.headNode.toString()); //1st node
 
-    // this.headNode.nextNode.forEach((element) => {
-    //   console.log(element.toString());
-    // });
-    RecursionFunction(this.headNode);
+    RecursionFunction(
+      this.headNode,
+      MapDSA.allnodes.map((d) => d.nodeIndex) //array of id passing [0,1,2,3..]
+    );
   }
 
   isNodePresent(index) {
@@ -74,6 +73,7 @@ mapdsa.addNode(50, 50, 50, 2);
 
 mapdsa.addExistingNode(MapDSA.allnodes[5], MapDSA.allnodes[1]);
 
+mapdsa.addNode(10, 10, 20, 5);
 mapdsa.showAllNodes();
 // console.log(mapdsa.returnNode(3));
 // console.log(MapDSA.allnodes);
